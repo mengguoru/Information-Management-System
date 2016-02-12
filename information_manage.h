@@ -11,6 +11,15 @@ typedef struct _Node
 	Item itm;
 	struct  Node *next;
 }Node;
+
+#define QUIT 0
+#define MAINTAIN 1
+#define SEARCH 2
+#define CREATE 3
+#define READ 4
+#define UPDATE 5
+#define DELETE 6
+
 void print_manual();
 
 void search(int the_id);
