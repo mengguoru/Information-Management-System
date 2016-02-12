@@ -40,13 +40,11 @@ int main(int argc, char const *argv[])
 {
 	int message=1;
 	print_manual();
-	// while(message)
-	// {
-	// 	message = event_process(message);
-	// }
-	while(message =get_input())
+	
+	// message process
+	while(message != QUIT)
 	{
-		printf("You type:%d\n", message);
+		message = get_input();
 		event_process(message);
 	}
 	printf("You are quited\n");

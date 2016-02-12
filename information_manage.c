@@ -17,7 +17,20 @@ void create()
 
 void read()
 {
-	printf("call read()\n");
+	FILE *fp;
+	int id;
+	char str1[10],str2[256];
+	if((fp = fopen("information_manage.data","r")) == NULL)
+	{
+		printf("information_manage.data not exists\n");
+		return;
+	}
+	while(!feof(fp))
+	{
+		fscanf(fp, "%d %s %s\n",&id,str1,str2);
+		printf("%d %s %s\n",id,str1,str2);
+	}
+	fclose(fp);
 }
 
 void update(int the_id)
