@@ -5,11 +5,11 @@ typedef struct _Item
 	int id;
 	char name[10];
 	char message[256];
-}Item;
+}Item;	
 typedef struct _Node
 {
 	Item itm;
-	struct  Node *next;
+	struct  _Node *next;
 }Node;
 
 #define QUIT 0
@@ -22,9 +22,13 @@ typedef struct _Node
 
 void print_manual();
 
-void search(int the_id);
+Node* search();
 void create();
 void read();
 void update(int the_id);
 void delete(int the_id);
+
+Node* read_data();
+// below function is for test
+void print_list(Node *head);
 #endif
