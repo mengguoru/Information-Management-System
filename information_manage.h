@@ -29,6 +29,8 @@ void update(int the_id);
 void delete(int the_id);
 
 Node* read_data();
+int write_data(Node *head);
+void insert(Node *head ,Node *Node_insert);
 // below function is for test
 void print_list(Node *head);
 #endif

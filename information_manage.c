@@ -14,10 +14,16 @@ Node* search()
 
 void create()
 {
-	printf("call create()\n");
 	Node *head = read_data();
+	Node *Node_create = (Node *)malloc(sizeof(Node));
+	Node_create->next = NULL;
+	printf("input item id name message (example format: 10 xxx xxx):\n");
+	scanf("%d %s %s",&(Node_create->itm.id),Node_create->itm.name,Node_create->itm.message);
 	// test list
+	print_list(Node_create);
+	insert(head,Node_create);	
 	print_list(head);
+	write_data(head);
 }
 
 void read()
@@ -44,7 +50,7 @@ Node* read_data()
 	FILE *fp;
 	if((fp = fopen("information_manage.data","r")) == NULL)
 	{
-		printf("information_manage.data not exists\n");
+		printf("information_manage.data open failed\n");
 		return NULL;
 	}
 	while(!feof(fp))
@@ -70,6 +76,24 @@ Node* read_data()
 	return head;
 }
 
+int write_data(Node *head)
+{
+	FILE *fp;
+	if((fp = fopen("information_manage.data","w")) == NULL)
+	{
+		printf("information_manage.data open failed\n");
+		return -1;
+	}
+	Node *p = head;
+	while(p != NULL)
+	{
+		fprintf(fp, "%d %s %s\n",p->itm.id,p->itm.name,p->itm.message );
+		p = p->next;
+	}
+	fclose(fp);
+	return 0;
+}
+
 void update(int the_id)
 {
 	printf("call update()\n");
@@ -78,6 +102,16 @@ void update(int the_id)
 void delete(int the_id)
 {
 	printf("call delete()\n");
+}
+
+// insert to tail
+void insert(Node *head ,Node *Node_insert)
+{
+	Node *p1 = head;
+	while(p1 != NULL)
+		p1 = p1->next;
+	p1 = Node_insert;
+	p1 ->next = NULL;
 }
 
 // for test

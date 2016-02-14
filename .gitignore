@@ -30,3 +30,8 @@
 
 # Debug files
 *.dSYM/
+
+# below are my ignore fiel (test file)
+test.c
+makefile1
+test
