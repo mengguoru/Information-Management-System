@@ -23,10 +23,10 @@ typedef struct _Node
 void print_manual();
 
 void search_for();
-Node* search(int id_search);
+Node* search(Node *head,int id_search);
 void create();
 void read();
-void update(int the_id);
+void update();
 void delete(int the_id);
 
 Node* read_data();

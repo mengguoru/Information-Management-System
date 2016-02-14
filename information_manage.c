@@ -1,6 +1,7 @@
 #include "information_manage.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 void print_manual()
 {
 	printf("input choiece below:\n2: Search\n3: Create\n 4 : Read \n 5 : Update \n 6 : Delete \n");
@@ -11,13 +12,14 @@ void search_for()
 	int n;
 	printf("the id you want to search:");
 	scanf("%d",&n);
-	Node *p = search(n);
+	Node *head = read_data();
+	Node *p = search(head,n);
 	printf("%d %s %s\n", p->itm.id,p->itm.name,p->itm.message);
 }
 
-Node* search(int id_search)
+Node* search(Node *head,int id_search)
 {
-	Node *p = read_data();
+	Node *p = head;
 	while(p != NULL)
 	{
 		if(p->itm.id == id_search)
@@ -108,9 +110,19 @@ int write_data(Node *head)
 	return 0;
 }
 
-void update(int the_id)
+void update()
 {
-	printf("call update()\n");
+	int id;
+	char the_name[10],the_message[256];
+	printf("the id you want to change:");
+	scanf("%d\n",&id);
+	printf("the name && message change to :");
+	scanf("%s %s",the_name,the_message);
+	Node *head = read_data();
+	Node *p = search(head,id);
+	strcpy(p->itm.name,the_name);
+	strcpy(p->itm.message,the_message);
+	write_data(head);
 }
 
 void delete(int the_id)

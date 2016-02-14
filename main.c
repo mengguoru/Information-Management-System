@@ -24,7 +24,7 @@ int event_process(int the_message)
 			read();
 			break;
 		case UPDATE:
-			update(the_message);
+			update();
 			break;
 		case DELETE:
 			delete(the_message);
