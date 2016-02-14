@@ -15,7 +15,7 @@ int event_process(int the_message)
 	switch(the_message)
 	{
 		case SEARCH:
-			search(the_message);
+			search_for();
 			break;
 		case CREATE:
 			create();

@@ -22,7 +22,8 @@ typedef struct _Node
 
 void print_manual();
 
-Node* search();
+void search_for();
+Node* search(int id_search);
 void create();
 void read();
 void update(int the_id);

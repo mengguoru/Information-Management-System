@@ -3,13 +3,27 @@
 #include <stdlib.h>
 void print_manual()
 {
-	printf("input choiece below:\n1:xxx\n2:xxx\n");
+	printf("input choiece below:\n2: Search\n3: Create\n 4 : Read \n 5 : Update \n 6 : Delete \n");
 }
 
-Node* search()
+void search_for()
 {
-	printf("call search()\n");
+	int n;
+	printf("the id you want to search:");
+	scanf("%d",&n);
+	Node *p = search(n);
+	printf("%d %s %s\n", p->itm.id,p->itm.name,p->itm.message);
+}
 
+Node* search(int id_search)
+{
+	Node *p = read_data();
+	while(p != NULL)
+	{
+		if(p->itm.id == id_search)
+			return p;
+	}
+	return NULL;
 }
 
 void create()
