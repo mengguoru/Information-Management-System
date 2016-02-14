@@ -27,8 +27,9 @@ Node* search(Node *head,int id_search);
 void create();
 void read();
 void update();
-void delete(int the_id);
+void delete2();
 
+void delete(Node *head,int the_id);
 Node* read_data();
 int write_data(Node *head);
 void insert(Node *head ,Node *Node_insert);

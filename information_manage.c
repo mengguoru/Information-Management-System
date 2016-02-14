@@ -125,7 +125,23 @@ void update()
 	write_data(head);
 }
 
-void delete(int the_id)
+void delete2()
+{
+	int id;
+	printf("the id you want to delete");
+	scanf("%d",&id);
+	Node *head = read_data();
+	Node *p1 = head;
+	while(p1->next!= NULL)
+	{
+		if(p1->next->itm.id == id)
+			p1->next = p1->next->next;
+		free(p1->next);
+	}
+	write_data(head);
+}
+
+void delete(Node *head,int the_id)
 {
 	printf("call delete()\n");
 }

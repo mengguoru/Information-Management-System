@@ -27,7 +27,7 @@ int event_process(int the_message)
 			update();
 			break;
 		case DELETE:
-			delete(the_message);
+			delete2();
 			break;
 		default:
 			flag = QUIT;
